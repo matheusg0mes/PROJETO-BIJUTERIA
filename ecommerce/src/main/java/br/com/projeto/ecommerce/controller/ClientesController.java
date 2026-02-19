@@ -36,7 +36,7 @@ public class ClientesController {
 	}
 	
 	@PostMapping("/clientes")
-	public ResponseEntity<Clientes> newClientes(@RequestBody Clientes novo){
+	public ResponseEntity<Clientes> novoClientes(@RequestBody Clientes novo){
 		try {
 			Clientes cl = cli.cadastrarCliente(novo);
 			return ResponseEntity.ok(cl);
