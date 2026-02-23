@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.projeto.ecommerce.model.Produtos;
 import br.com.projeto.ecommerce.service.produto.IProdutosService;
-import jakarta.websocket.server.PathParam;
 
 @RestController
 public class ProdutosController {

@@ -2,6 +2,9 @@ package br.com.projeto.ecommerce.model;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -10,10 +13,12 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name ="tbl_produto")
+@JsonPropertyOrder({"id", "nome", "descricao", "preco", "disponivel", "categorias", "variantes"})
 public class Produtos {
 
 	@Id
@@ -38,6 +43,10 @@ public class Produtos {
 			joinColumns = @JoinColumn(name ="tbl_produto_id_produto"),
 			inverseJoinColumns = @JoinColumn(name ="tbl_categoria_id_categoria") )
 	private List<Categoria> categorias;
+	
+	@JsonIgnoreProperties("produto")
+	@OneToMany(mappedBy = "produto")
+	private List<Variantes> variantes;
 
 	public Integer getId() {
 		return id;
