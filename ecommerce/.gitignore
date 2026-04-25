@@ -8,6 +8,10 @@ target/
 .idea/
 *.iml
 
+.env
+bin/
+novo
+
 # IDE - Eclipse
 .classpath
 .project
